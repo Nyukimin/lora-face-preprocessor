@@ -1,0 +1,27 @@
+# プロジェクト固有のディレクトリ（各プロジェクトで個別に管理）
+!common/
+
+# 一時ファイル
+*.tmp
+*.bak
+*~
+
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+
+# 一般的な禁止ファイル
+.env
+.vscode/
+.idea/
+
+# Serena (ローカル専用: Pushしない)
+.serena/
+serena_stub.py
+
+# Cursor MCP設定（機密情報を含む可能性があるため）
+.cursor/mcp.json
+
+# プロジェクト固有のデータ（Git管理外）
+input/
+out/

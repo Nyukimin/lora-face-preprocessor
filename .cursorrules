@@ -1,0 +1,50 @@
+# Cursor Rules for loganalyzer
+
+# ============================================
+# 共通ルールの参照（必須）
+# ============================================
+@rules/common/GLOBAL_AGENT.md
+@rules/common/rules_architecture.md
+@rules/common/rules_backend.md
+@rules/common/rules_frontend.md
+@rules/common/rules_logging.md
+@rules/common/rules_security.md
+@rules/common/rules_testing.md
+
+# ============================================
+# プロジェクト固有ルールの参照
+# ============================================
+@rules/PROJECT_AGENT_sample.md
+@rules/rules_domain_sample.md
+
+# ============================================
+# 以下、プロジェクト固有の追加ルール
+# ============================================
+
+## プロジェクト概要
+- **プロジェクト名**: loganalyzer
+- **目的**: ログデータの可視化・分析に特化したプロジェクト
+- **主要機能**: リモートデバイスからのログ取得、分析、可視化、ロールバック
+- **使用言語**: Bash (シェルスクリプト), Python 3
+- **プラットフォーム**: macOS (Darwin), Linux
+
+## プロジェクト固有の注意事項
+
+### 実行環境
+- **プラットフォーム**: macOS (Darwin), Linux
+
+### Chrome DevTools MCP使用時の重要ルール
+- **`take_snapshot`の使用を全面禁止**: 大量DOM出力によるシステム停止を防ぐため
+- 代替手段を必ず使用:
+  - 視覚確認: `take_screenshot`
+  - データ取得: `evaluate_script`でサンプリング・統計
+  - 特定要素: uid指定での取得は不可（evaluate_scriptで代替）
+- 10,000件以上のデータデバッグは段階的アプローチを採用
+- 詳細は `rules/rules_domain_sample.md` の「Chrome DevTools MCP使用ガイド」を参照（このファイルを編集して運用）
+
+## プロジェクト固有の禁止事項
+
+- ❌ **ログファイルを `logs/` 以外のディレクトリに出力すること（必須遵守）**
+- ❌ **`mcp__Chrome-DevTools-MCP__take_snapshot`の使用（システム停止の原因）**
+
+**注意**: 共通の禁止事項・推奨事項は `rules/common/GLOBAL_AGENT.md` を参照してください。

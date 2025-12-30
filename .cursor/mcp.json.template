@@ -1,0 +1,27 @@
+{
+  "_comment": "このプロジェクトで使用するMCPサーバーの設定",
+  "_instructions": "無効化したいサーバーは、該当するエントリ全体を削除してください",
+  "mcpServers": {
+    "blender-mcp": {
+      "_enabled": true,
+      "_description": "Blender統合MCPサーバー",
+      "command": "python",
+      "args": [
+        "-m",
+        "blender_mcp.server"
+      ],
+      "cwd": "E:\\GenerativeAI\\MCP\\blender-mcp"
+    },
+    "serena": {
+      "_enabled": true,
+      "_description": "Serena MCPサーバー",
+      "command": "python",
+      "args": [
+        "-m",
+        "serena.cli",
+        "start_mcp_server"
+      ],
+      "cwd": "E:\\GenerativeAI\\MCP\\serena"
+    }
+  }
+}
