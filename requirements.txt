@@ -1,0 +1,19 @@
+# lora-face-preprocessor 依存パッケージ
+#
+# Python バージョン要件: Python 3.10以上
+#
+# インストール方法:
+#   pip install -r requirements.txt
+#
+# または conda 環境の場合:
+#   conda install opencv numpy pillow
+#
+# 注意:
+#   - opencv-python には Haar Cascade XML ファイルが含まれています
+#   - これらは顔検出と目検出に使用されます
+
+# 画像処理とコンピュータビジョン
+opencv-python>=4.8.0,<5.0.0  # 顔検出・画像読み込み（Haar Cascade含む）
+numpy>=1.24.0,<2.0.0         # 数値計算・配列操作
+Pillow>=10.0.0               # 画像処理・リサイズ・保存（10.0.0以上）
+
